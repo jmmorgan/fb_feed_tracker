@@ -10,6 +10,19 @@ if defined?(Bundler)
 end
 
 module FbFeedTracker
+
+  # Iterates through values of the given hash, replacing each in the format $FOO with the value stored in ENV["FOO"].
+  # Also recursively invokes this method on any hash values that are hashes themselves.
+  def self.process_environment_variables_in_hash(hash)
+    hash.each_pair do |key, value|
+      if (value.is_a?(String) && value =~ /^\$/)
+        hash[key] = ENV[value.gsub(/^\$/, "")]
+      elsif (value.is_a?(Hash))
+        process_environment_variables_in_hash(value)
+      end
+    end
+  end
+
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -61,6 +74,8 @@ module FbFeedTracker
 
     #main app environment settings
     config.settings = YAML.load_file(File.join(Rails.root, "config", "settings.yml"))[Rails.env]
+    FbFeedTracker.process_environment_variables_in_hash(config.settings)
+
 
     
     # Default mail settings

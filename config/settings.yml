@@ -3,8 +3,8 @@ development:
     address:               smtp.gmail.com 
     port:                  587
     domain:                www.9mmedia.com
-    user_name:             mailer@9mmedia.com
-    password:              9mspammer
+    user_name:             '$GMAIL_USERNAME'
+    password:              '$GMAIL_PASSWORD'
     authentication:        plain
     enable_starttls_auto:  true
 
@@ -18,8 +18,8 @@ test:
     address:               smtp.gmail.com 
     port:                  587
     domain:                www.9mmedia.com
-    user_name:             mailer@9mmedia.com
-    password:              9mspammer
+    user_name:             '$GMAIL_USERNAME'
+    password:              '$GMAIL_PASSWORD'
     authentication:        plain
     enable_starttls_auto:  true
 
@@ -33,8 +33,8 @@ production:
     address:               smtp.gmail.com 
     port:                  587
     domain:                www.9mmedia.com
-    user_name:             mailer@9mmedia.com
-    password:              9mspammer
+    user_name:             '$GMAIL_USERNAME'
+    password:              '$GMAIL_PASSWORD'
     authentication:        plain
     enable_starttls_auto:  true
 
