@@ -58,7 +58,10 @@ module FbFeedTracker
       
       emails.each do |email|
         # Really inefficient querying, but this is quick and dirty.  Performance concerns can wait until we have a need to address them
-        ResourceMailer.send_item_email(account_id, name, id, msg, email).deliver
+        if (SentItem.find_by_item_id_and_to(id, email) == nil)
+          ResourceMailer.send_item_email(account_id, name, id, msg, email).deliver
+          SentItem.create!(:item_id => id, :to => email)
+        end
       end
 
     end
