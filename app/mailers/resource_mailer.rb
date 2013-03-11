@@ -6,6 +6,6 @@ class ResourceMailer < ActionMailer::Base
     @subject = "#{account_name} has posted something new to their feed"
     @msg = msg
     @url = "http://www.facebook.com/#{account_id}/posts/#{id}"
-    mail(:to => to, :subject => @subject)
+    mail(:to => to, :from => "joe@9mmedia.com", :subject => @subject)
   end
 end
