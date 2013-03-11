@@ -58,7 +58,7 @@ module FbFeedTracker
       
       emails.each do |email|
         # Really inefficient querying, but this is quick and dirty.  Performance concerns can wait until we have a need to address them
-        ResourceMailer.send_item_email(name, id, msg, email)
+        ResourceMailer.send_item_email(account_id, name, id, msg, email)
       end
 
     end
