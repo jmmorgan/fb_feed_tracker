@@ -1,0 +1,43 @@
+development:
+  smtp_settings:         
+    address:               smtp.gmail.com 
+    port:                  587
+    domain:                www.9mmedia.com
+    user_name:             mailer@9mmedia.com
+    password:              9mspammer
+    authentication:        plain
+    enable_starttls_auto:  true
+
+  send_emails: true
+
+  ssl_required: false
+
+
+test:
+  smtp_settings:         
+    address:               smtp.gmail.com 
+    port:                  587
+    domain:                www.9mmedia.com
+    user_name:             mailer@9mmedia.com
+    password:              9mspammer
+    authentication:        plain
+    enable_starttls_auto:  true
+
+  send_emails: false
+
+  ssl_required: false
+
+
+production:
+  smtp_settings:         
+    address:               smtp.gmail.com 
+    port:                  587
+    domain:                www.9mmedia.com
+    user_name:             mailer@9mmedia.com
+    password:              9mspammer
+    authentication:        plain
+    enable_starttls_auto:  true
+
+  send_emails: true
+
+  ssl_required: false

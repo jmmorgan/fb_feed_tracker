@@ -2,3 +2,24 @@
 
 = link_to "Generate FB access token", "/auth/facebook"
 
+%form{:method => "post", :action => "welcome/do_check"}
+
+  %p 
+    Access Token
+    %input{:type => "text", :value => "#{ENV["FBFT_ACCESS_TOKEN"]}", :name => "access_token", :size => "120"}
+
+  %br
+
+  %p 
+    FB Feed ID
+    %input{:type => "text", :value => "26426125254", :name => "feed_id", :size => "120"}
+
+  %p 
+    Emails (comma-delimited):
+    %br
+    %textarea{:rows => "5", :cols => "120", :name=>"emails"}joe@9mmedia.com,joseph_m_morgan@yahoo.com 
+
+  %br
+
+  %input{:type => "Submit", :value => "Run"}
+

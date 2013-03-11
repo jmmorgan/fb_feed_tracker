@@ -48,6 +48,8 @@ FbFeedTracker::Application.routes.draw do
 
   match "/auth/:service/callback" => "welcome#omniauth_callback"
 
+  post "/welcome/do_check"
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'welcome#index'
