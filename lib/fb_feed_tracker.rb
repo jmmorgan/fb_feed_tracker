@@ -54,11 +54,11 @@ module FbFeedTracker
       id = item["id"]
       name =  nested_lookup(item, "from", "name")
       account_id = nested_lookup(item, "from", "id")
-      msg = item["msg"]
+      msg = item["message"]
       
       emails.each do |email|
         # Really inefficient querying, but this is quick and dirty.  Performance concerns can wait until we have a need to address them
-        ResourceMailer.send_item_email(account_id, name, id, msg, email)
+        ResourceMailer.send_item_email(account_id, name, id, msg, email).deliver
       end
 
     end
